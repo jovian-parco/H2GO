@@ -1,0 +1,90 @@
+{% extends "public/extend/layout.html" %}
+{% block content %}
+
+    <div class="card col-lg-6 mx-auto my-3">
+    <div class="card-body">
+      <div class="content-section">
+        <form method="POST" action="" novalidate>
+          {{ form.hidden_tag()}}
+          <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Order Now</legend>
+            <div class="form-group">
+              {{form.product_6l_round.label(class="form-control-label")}}
+              {%if form.product_6l_round.errors%}
+                {{form.product_6l_round(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.product_6l_round.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+              {%else%}
+                {{form.product_6l_round(class="form-control form-control-lg")}}
+              {%endif %}
+            </div>
+            <div class="form-group">
+              {{form.product_5g_round.label(class="form-control-label")}}
+              {%if form.product_5g_round.errors%}
+                {{form.product_5g_round(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.product_5g_round.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+              {%else%}
+                {{form.product_5g_round(class="form-control form-control-lg")}}
+              {%endif %}
+            </div>
+            <div class="form-group">
+              {{form.product_5g_slim.label(class="form-control-label")}}
+              {%if form.product_5g_slim.errors%}
+                {{form.product_5g_slim(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.product_5g_slim.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+              {%else%}
+                {{form.product_5g_slim(class="form-control form-control-lg")}}
+              {%endif %}
+            </div>
+            <div class="form-check">
+              {{form.is_delivery(class="form-check-input")}}
+              {{form.is_delivery.label(class="form-check-label")}}
+            </div>
+
+            <div class="form-group">
+              {{form.time_pickup.label(class="form-control-label")}}
+              {%if form.time_pickup.errors%}
+                {{form.time_pickup(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.time_pickup.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+              {%else%}
+                {{form.time_pickup(class="form-control form-control-lg")}}
+              {%endif %}
+            </div>
+
+            <div class="form-group">
+              {{form.time_delivery.label(class="form-control-label")}}
+              {%if form.time_delivery.errors%}
+                {{form.time_delivery(class="form-control form-control-lg is-invalid")}}
+                <div class="invalid-feedback">
+                  {%for error in form.time_delivery.errors%}
+                    <span>{{error}}</span>
+                  {%endfor%}
+                </div>
+              {%else%}
+                {{form.time_delivery(class="form-control form-control-lg")}}
+              {%endif %}
+            </div>
+          </fieldset>
+          <div class="form-group">
+            {{form.submit(class="btn btn-dark mt-3")}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

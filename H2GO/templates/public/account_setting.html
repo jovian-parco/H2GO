@@ -1,0 +1,85 @@
+{% extends "public/extend/layout.html" %}
+{% block content %}
+    <div class="card col-lg-8 mx-auto my-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <img src="{{image_file}}" class="img-thumbnail rounded-circle mx-auto d-block" width="300" height="300">
+            </div>
+            <div class="row">
+              <form method="POST" action="" novalidate enctype="multipart/form-data">
+                {{ form.hidden_tag()}}
+                <fieldset class="form-group">
+                  <legend class="border-bottom mb-4">Account Settings</legend>
+                  <div class="form-group">
+                    {{form.first_name.label(class="form-control-label")}}
+                    {%if form.first_name.errors%}
+                      {{form.first_name(class="form-control form-control-lg is-invalid")}}
+                      <div class="invalid-feedback">
+                        {%for error in form.first_name.errors%}
+                          <span>{{error}}</span>
+                        {%endfor%}
+                      </div>;
+                    {%else%}
+                      {{form.first_name(class="form-control form-control-lg")}}
+                    {%endif %}
+                  </div>
+                  <div class="form-group">
+                    {{form.last_name.label(class="form-control-label")}}
+                    {%if form.last_name.errors%}
+                      {{form.last_name(class="form-control form-control-lg is-invalid")}}
+                      <div class="invalid-feedback">
+                        {%for error in form.last_name.errors%}
+                          <span>{{error}}</span>
+                        {%endfor%}
+                      </div>
+                    {%else%}
+                      {{form.last_name(class="form-control form-control-lg")}}
+                    {%endif %}
+                  </div>
+                  <div class="form-group">
+                    {{form.phone_number.label(class="form-control-label")}}
+                    {%if form.phone_number.errors%}
+                      {{form.phone_number(class="form-control form-control-lg is-invalid")}}
+                      <div class="invalid-feedback">
+                        {%for error in form.phone_number.errors%}
+                          <span>{{error}}</span>
+                        {%endfor%}
+                      </div>
+                    {%else%}
+                      {{form.phone_number(class="form-control form-control-lg")}}
+                    {%endif %}
+                  </div>
+                  <div class="form-group">
+                    {{form.address.label(class="form-control-label")}}
+                    {%if form.address.errors%}
+                      {{form.address(class="form-control form-control-lg is-invalid")}}
+                      <div class="invalid-feedback">
+                        {%for error in form.address.errors%}
+                          <span>{{error}}</span>
+                        {%endfor%}
+                      </div>
+                    {%else%}
+                      {{form.address(class="form-control form-control-lg")}}
+                    {%endif %}
+                  </div>
+                </fieldset>
+                  <div class="form-group">
+                    {{form.image_file.label()}}
+                    </br>
+                    {{form.image_file(class="form-control-file")}}
+                    {%if form.image_file.errors%}
+                      {%for error in form.image_file.errors%}
+                        </br> <span class="text-danger">{{error}}</span>
+                      {%endfor%}
+                    {%endif%}
+                  </div>
+                  <div class="form-group">
+                    {{form.submit(class="btn btn-dark mt-3")}}
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock content %}
